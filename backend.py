@@ -1,9 +1,9 @@
 import openai
-
+from decouple import config
 
 class ChatBot:
     def __init__(self):
-        openai.api_key = "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"
+        openai.api_key = config('OPENAI_API_KEY')
 
     def get_response(self, user_input):
         resp = openai.Completion.create(
