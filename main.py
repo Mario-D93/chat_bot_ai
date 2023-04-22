@@ -1,9 +1,9 @@
-from PyQt6.QtGui import QTextDocument
-from PyQt6.QtPrintSupport import QPrinter
 from PyQt6.QtWidgets import QMainWindow, QTextEdit, QPushButton, QApplication, QFileDialog, QProgressDialog, QMessageBox
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QPdfWriter, QPainter, QPageSize
-from reportlab.pdfgen import canvas
+# from PyQt6.QtGui import QPdfWriter, QPainter, QPageSize
+# from reportlab.pdfgen import canvas
+# from PyQt6.QtGui import QTextDocument
+# from PyQt6.QtPrintSupport import QPrinter
 from backend import ChatBot
 import sys
 
@@ -70,13 +70,14 @@ class ChatWindow(QMainWindow):
                 f.write(self.output_field.toPlainText())
 
     def export_pdf(self):
-        file_name, _ = QFileDialog.getSaveFileName(self, "Export as .pdf", ".", "PDF Files (*.pdf)")
-        if file_name:
-            pdf = QPdfWriter(file_name)
-            pdf.setPageSize(QPageSize(self.output_field.size()))
-            painter = QPainter(pdf)
-            self.output_field.render(painter)
-            painter.end()
+        pass
+        # file_name, _ = QFileDialog.getSaveFileName(self, "Export as .pdf", ".", "PDF Files (*.pdf)")
+        # if file_name:
+        #     pdf = QPdfWriter(file_name)
+        #     pdf.setPageSize(QPageSize(self.output_field.size()))
+        #     painter = QPainter(pdf)
+        #     self.output_field.render(painter)
+        #     painter.end()
 
 
 app = QApplication(sys.argv)
